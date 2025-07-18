@@ -1,0 +1,152 @@
+{
+  "statement_metadata": {
+    "record_id": "stmt_2024_03_4532_abc123",
+    "statement_date": "2024-03-15",
+    "statement_period": {
+      "start_date": "2024-02-16",
+      "end_date": "2024-03-15"
+    },
+    "days_in_period": 28,
+    "card_identifier": "4532****1234",
+    "payment_due_date": "2024-04-10",
+    "currency": "USD",
+    "statement_locale": "en_US"
+  },
+  "account_info": {
+    "card_brand": "VISA",
+    "is_rewards_card": true,
+    "is_business_card": false,
+    "credit_limit": 5000.00
+  },
+  "financial_summary": {
+    "previous_balance": 1250.50,
+    "payments_credits": 1000.00,
+    "purchases": 1875.25,
+    "closing_balance": 2125.75,
+    "minimum_payment_due": 85.00,
+    "fees_charged": 25.00,
+    "interest_charged": 15.50,
+    "available_credit": 2874.25,
+    "cash_advances": 0.00,
+    "balance_transfers": 0.00,
+    "total_debits": 1915.75,
+    "total_credits": 1000.00,
+    "over_limit_amount": 0.00
+  },
+  "transactions": [
+    {
+      "transaction_id": "txn_001",
+      "amount": 5.75,
+      "description": "STARBUCKS STORE #12345",
+      "date": "2024-03-01",
+      "merchant_name": "Starbucks",
+      "category": "Food & Dining",
+      "location": "New York, NY",
+      "is_disputed": false,
+      "is_recurring": false,
+      "payment_method": "chip"
+    },
+    {
+      "transaction_id": "txn_002",
+      "amount": 89.99,
+      "description": "AMAZON.COM PURCHASE",
+      "date": "2024-03-02",
+      "merchant_name": "Amazon",
+      "category": "Online Retail",
+      "location": null,
+      "is_disputed": false,
+      "is_recurring": false,
+      "payment_method": "online"
+    },
+    {
+      "transaction_id": "txn_003",
+      "amount": 45.00,
+      "description": "SHELL GAS STATION",
+      "date": "2024-03-03",
+      "merchant_name": "Shell",
+      "category": "Gas & Fuel",
+      "location": "Brooklyn, NY",
+      "is_disputed": false,
+      "is_recurring": false,
+      "payment_method": "contactless"
+    },
+    {
+      "transaction_id": "txn_004",
+      "amount": 125.50,
+      "description": "TARGET STORE #0123",
+      "date": "2024-03-05",
+      "merchant_name": "Target",
+      "category": "Department Stores",
+      "location": "Manhattan, NY",
+      "is_disputed": false,
+      "is_recurring": false,
+      "payment_method": "chip"
+    },
+    {
+      "transaction_id": "txn_005",
+      "amount": 1500.00,
+      "description": "PAYMENT - THANK YOU",
+      "date": "2024-03-10",
+      "merchant_name": "Payment",
+      "category": "Payments",
+      "location": null,
+      "is_disputed": false,
+      "is_recurring": false,
+      "payment_method": "online"
+    }
+  ],
+  "spending_patterns": {
+    "total_transactions": 5,
+    "spending_trend": "increasing",
+    "category_breakdown": {
+      "Food & Dining": 5.75,
+      "Online Retail": 89.99,
+      "Gas & Fuel": 45.00,
+      "Department Stores": 125.50,
+      "Payments": -1500.00
+    },
+    "merchant_frequency": {
+      "Starbucks": 1,
+      "Amazon": 1,
+      "Shell": 1,
+      "Target": 1,
+      "Payment": 1
+    },
+    "seasonal_patterns": {
+      "Q1_2024": {
+        "total_spending": 266.24,
+        "avg_transaction": 66.56
+      }
+    },
+    "recurring_transactions": [
+      {
+        "merchant": "Starbucks",
+        "frequency": "weekly",
+        "avg_amount": 5.75
+      }
+    ]
+  },
+  "risk_metrics": {
+    "credit_utilization_ratio": 0.425,
+    "payment_history_score": 0.95,
+    "risk_score": 0.15,
+    "fraud_indicators": [],
+    "spending_velocity": 1.2,
+    "unusual_activity_score": 0.05
+  },
+  "engineered_features": {
+    "monthly_spending_avg": 875.25,
+    "category_diversity_score": 0.85,
+    "merchant_loyalty_score": 0.60,
+    "transaction_timing_patterns": {
+      "weekday_ratio": 0.8,
+      "weekend_ratio": 0.2,
+      "evening_transactions": 0.4
+    },
+    "geographic_spending_patterns": {
+      "primary_city": "New York",
+      "city_diversity": 0.2,
+      "travel_spending": 0.0
+    }
+  }
+}
