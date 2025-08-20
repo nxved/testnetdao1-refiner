@@ -65,14 +65,26 @@ class TransactionRecord(Base):
     
     transaction_id = Column(String, primary_key=True)
     record_id = Column(String, ForeignKey('statements.record_id'), nullable=False)
-    amount = Column(Float, nullable=False)
-    description = Column(Text, nullable=False)
     transaction_date = Column(Date, nullable=False)
+    posting_date = Column(Date, nullable=True)
+    description = Column(Text, nullable=False)
+    amount = Column(Float, nullable=False)
+    transaction_type = Column(String, nullable=True)  # PURCHASE|PAYMENT|CASH_ADVANCE|FEE|INTEREST|REFUND
+    day_of_week = Column(Integer, nullable=True)  # 1-7, Monday-Sunday
+    day_of_month = Column(Integer, nullable=True)
+    is_weekend = Column(Boolean, nullable=True)
     merchant_name = Column(String, nullable=False)
-    category = Column(String, nullable=True)
+    merchant_id = Column(String, nullable=True)
+    category_primary = Column(String, nullable=True)  # Main category
+    category_detailed = Column(String, nullable=True)  # Detailed subcategory
+    channel = Column(String, nullable=True)  # POS|ONLINE|ATM|MOBILE|RECURRING|OTHER
+    currency = Column(String, nullable=True, default="USD")
+    transaction_country = Column(String, nullable=True, default="US")
+    transaction_locale = Column(String, nullable=True, default="en_US")
+    is_international = Column(Boolean, nullable=True, default=False)
+    is_recurring = Column(Boolean, nullable=True)
     location = Column(String, nullable=True)
     is_disputed = Column(Boolean, nullable=True)
-    is_recurring = Column(Boolean, nullable=True)
     payment_method = Column(String, nullable=True)
     
     statement = relationship("StatementRecord", back_populates="transactions")

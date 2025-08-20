@@ -139,14 +139,26 @@ class CreditStatementTransformer(DataTransformer):
             transaction = TransactionRecord(
                 transaction_id=txn.transaction_id,
                 record_id=statement.statement_metadata.record_id,
-                amount=txn.amount,
+                transaction_date=self._parse_date(txn.transaction_date),  # Updated field name
+                posting_date=self._parse_date(txn.posting_date) if txn.posting_date else None,  # Added
                 description=sanitized_description,
-                transaction_date=self._parse_date(txn.date),
+                amount=txn.amount,
+                transaction_type=txn.transaction_type,  # Added
+                day_of_week=txn.day_of_week,  # Added
+                day_of_month=txn.day_of_month,  # Added
+                is_weekend=txn.is_weekend,  # Added
                 merchant_name=txn.merchant_name,
-                category=txn.category,
+                merchant_id=txn.merchant_id,  # Added
+                category_primary=txn.category_primary,  # Updated field name
+                category_detailed=txn.category_detailed,  # Added
+                channel=txn.channel,  # Added
+                currency=txn.currency,  # Added
+                transaction_country=txn.transaction_country,  # Added
+                transaction_locale=txn.transaction_locale,  # Added
+                is_international=txn.is_international,  # Added
+                is_recurring=txn.is_recurring,
                 location=masked_location,
                 is_disputed=txn.is_disputed,
-                is_recurring=txn.is_recurring,
                 payment_method=txn.payment_method
             )
             transactions.append(transaction)
@@ -159,7 +171,7 @@ class CreditStatementTransformer(DataTransformer):
             record_id=statement.statement_metadata.record_id,
             total_transactions=statement.spending_patterns.total_transactions,
             spending_trend=statement.spending_patterns.spending_trend,
-            category_breakdown=statement.spending_patterns.category_breakdown,
+            category_breakdown=statement.spending_patterns.category_distribution,
             merchant_frequency=statement.spending_patterns.merchant_frequency,
             seasonal_patterns=statement.spending_patterns.seasonal_patterns,
             recurring_transactions=statement.spending_patterns.recurring_transactions
@@ -170,7 +182,7 @@ class CreditStatementTransformer(DataTransformer):
         return RiskMetric(
             record_id=statement.statement_metadata.record_id,
             credit_utilization_ratio=statement.risk_metrics.credit_utilization_ratio,
-            payment_history_score=statement.risk_metrics.payment_history_score,
+            payment_history_score=statement.risk_metrics.payment_ratio,
             risk_score=statement.risk_metrics.risk_score,
             fraud_indicators=statement.risk_metrics.fraud_indicators,
             spending_velocity=statement.risk_metrics.spending_velocity,
