@@ -22,7 +22,7 @@ class Settings(BaseSettings):
     
     # Schema Configuration - Updated for Credit Card Data
     SCHEMA_NAME: str = Field(
-        default="Credit Card Transaction Analytics",
+        default="Credit Card Transaction Schema",
         description="Name of the schema"
     )
     
