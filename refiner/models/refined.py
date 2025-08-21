@@ -19,6 +19,8 @@ class StatementRecord(Base):
     payment_due_date = Column(Date, nullable=True)
     currency = Column(String, nullable=True)
     statement_locale = Column(String, nullable=True)
+    country_code = Column(String, nullable=True)
+    country_name = Column(String, nullable=True)
     created_at = Column(DateTime, nullable=False, default=datetime.utcnow)
     
     # Relationships

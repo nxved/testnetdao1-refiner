@@ -87,7 +87,9 @@ class CreditStatementTransformer(DataTransformer):
             card_identifier=card_identifier,
             payment_due_date=self._parse_date(statement.statement_metadata.payment_due_date) if statement.statement_metadata.payment_due_date else None,
             currency=statement.statement_metadata.currency,
-            statement_locale=statement.statement_metadata.statement_locale
+            statement_locale=statement.statement_metadata.statement_locale,
+            country_code=statement.statement_metadata.country_code,
+            country_name=statement.statement_metadata.country_name
         )
     
     def _create_account_info(self, statement: CreditStatement) -> AccountInfo:

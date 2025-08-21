@@ -15,6 +15,8 @@ class StatementMetadata(BaseModel):
     payment_due_date: Optional[str] = None
     currency: Optional[str] = None
     statement_locale: Optional[str] = None
+    country_code: Optional[str] = None
+    country_name: Optional[str] = None
 
 class AccountInfo(BaseModel):
     card_brand: Optional[str] = None
@@ -127,5 +129,5 @@ class CreditStatement(BaseModel):
     transactions: List[Transaction]
     spending_patterns: Optional[SpendingPatterns] = None
     risk_metrics: Optional[RiskMetrics] = None
-    payment_history: Optional[PaymentHistory] = None  # Added
+    payment_history: Optional[PaymentHistory] = None
     engineered_features: Optional[EngineeredFeatures] = None
