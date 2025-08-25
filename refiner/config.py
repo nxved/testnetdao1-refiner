@@ -149,7 +149,7 @@ class Settings(BaseSettings):
     )
 
     IPFS_GATEWAY_URL: str = Field(
-        default="https://gateway.pinata.cloud/ipfs",
+        default="https://gray-active-shark-225.mypinata.cloud/ipfs",
         description="IPFS gateway URL for accessing uploaded files. Recommended to use own dedicated gateway to avoid congestion and rate limiting. Example: 'https://ipfs.my-dao.org/ipfs' (Note: won't work for third-party files)"
     )
     
